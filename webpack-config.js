@@ -3,9 +3,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	resolve: {
-      extensions: ['', '.js', '.css'],
-    },
 	entry: {
 		main: './index.js'
 	},
