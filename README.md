@@ -25,4 +25,33 @@ This writes resources into the `dist/` folder. They are not minified to make it 
 
 This demo is mostly useful to show how to use webpack to bundle a single page application that uses jQuery UI. The generated html page has no content on its own, which is a bad approach when you're building public facing websites. For those you'd start with a proper HTML page, but you could still use webpack to bundle the static resources (JS, CSS, images).
 
+## Using `resolve.alias` to simplify imports
 
+The demo is currently using these paths to require the autocomplete widget and its required CSS:
+
+```js
+require('jquery-ui/themes/base/core.css');
+require('jquery-ui/themes/base/menu.css');
+require('jquery-ui/themes/base/autocomplete.css');
+require('jquery-ui/themes/base/theme.css');
+var autocomplete = require('jquery-ui/ui/widgets/autocomplete');
+```
+
+If you don't want to specify the `themes/base` and `ui/widgets` paths for every import, you can use webpack's [`resolve.alias`](https://webpack.github.io/docs/configuration.html#resolve-alias) configuration:
+
+```js
+resolve: {
+	alias: {
+		'jquery-ui': 'jquery-ui/ui/widgets',
+		'jquery-ui-css': 'jquery-ui/../../themes/base'
+	}
+}
+```
+This specifies two aliases, one for widgets, one for CSS. With that in place, the code then looks like this:
+```js
+require('jquery-ui-css/core.css');
+require('jquery-ui-css/menu.css');
+require('jquery-ui-css/autocomplete.css');
+require('jquery-ui-css/theme.css');
+var autocomplete = require('jquery-ui/autocomplete');
+```
