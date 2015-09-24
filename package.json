@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack-config.js",
-    "build": "webpack --config webpack-config.js",
-    "test": "npm test"
+    "build": "webpack --config webpack-config.js"
   },
   "keywords": [
     "jquery-ui",
