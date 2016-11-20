@@ -11,11 +11,15 @@
     "jquery-ui",
     "webpack"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jzaefferer/webpack-jquery-ui.git"
+  },
   "author": "Jörn Zaefferer",
   "license": "MIT",
   "dependencies": {
     "jquery": "^2.1.4",
-    "jquery-ui": "jzaefferer/jquery-ui#webpack"
+    "jquery-ui": "1.12.x"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.3",
