@@ -11,6 +11,10 @@ module.exports = {
 		path: './dist',
 		filename: 'app.[hash].js'
 	},
+	externals: {
+		'globalize-locales': 'var {}',
+		'globalize/date': 'var {}'
+	},
 	module: {
 		loaders: [
 			{
